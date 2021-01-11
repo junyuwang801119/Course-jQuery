@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex13 click to change img</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      .img-demo {
+        height: 680px;
+      }
+
+      .img-demo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .img-wrap img {
+        width: 100%;
+        filter:brightness(0.8)
+      }
+      img.active {
+        filter: brightness(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="img-demo">
+            <img src="./photo/Succulent.H03.2k.png" alt="" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="img-wrap d-flex">
+            <div class="img-row"><img src="./photo/Succulent.H03.2k.png" alt=""></div>
+            <div class="img-row"><img src="./photo/Succulent.H03.2k-2.png" alt=""></div>
+            <div class="img-row"><img src="./photo/Succulent.H03.2k-3.png" alt=""></div>
+            <div class="img-row"><img src="./photo/Succulent.H03.2k-4.png" alt=""></div>
+            <div class="img-row"><img src="./photo/Succulent.H03.2k-5.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        //改CSS方法
+        // $('.img-row img').click(function(){            
+        //     $('.img-demo img').attr('src',$(this).attr('src'))
+        //     $(this).css('filter','brightness(1.0)').parent().siblings().children().css('filter','brightness(0.8)')
+        // });
+        //新增class方法
+        $('.img-row img').click(function(){            
+            $('.img-demo img').attr('src',$(this).attr('src'))
+            $(".img-row img").removeClass("active");
+            $(this).addClass("active");
+        });
+
+    </script>
+  </body>
+</html>

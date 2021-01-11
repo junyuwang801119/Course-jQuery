@@ -1,0 +1,133 @@
+::-webkit-scrollbar{
+  display: none;
+}
+
+header{
+    width: 100%;
+    height: 54px;
+    position: fixed;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 1;
+}
+main {
+    padding-top: 80px;
+    height: 300vh;
+  }
+  
+.personal-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px red inset;
+  }
+.personal-img img {
+    width: 90%;
+    height: 90%;
+    transform: translate(6%, 6%);
+    border-radius: 50%;
+  }
+  span.check {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_32f0a4f27407.png/32f0a4f27407.png");
+    background-position: 0 -369px;
+    background-repeat: no-repeat;
+  }
+  .first-row{
+      font-size: 2rem;
+      font-weight: 100;
+  }
+  .highlight{
+      padding-top: 40px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid #ccc;
+  }
+  .circle{
+      width: 77px;
+      height: 77px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px #ccc inset;
+  }
+  .circle img{
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      transform: translate(5%,5%);
+  }
+  .pageLink{
+    width: 60px;
+    text-align: center;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+    margin: -1px 40px;
+    text-transform: uppercase;
+  }
+
+  .content-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .relative-accounts{
+    width: 100%;
+    overflow: auto;
+    background-color: #fff;
+    transition: 1s ease-in;
+  }
+  .w{
+    transform:translate(50%,0%)
+  }
+  
+  .cards{
+    min-width: 200px;
+  }
+  
+  .card-img-area {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .card-img-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .relative-btn-right{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: #fff;
+    
+  }
+  a:hover{
+    text-decoration: none;
+    color: #fff;
+
+  }
+  .relative-btn-left{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    color: #fff;
+    
+  }
+
+  .relative-btn-left.hide{
+    visibility: hidden;
+  }
+  .relative-btn-right.hide{
+    visibility: hidden;
+  }
+ 

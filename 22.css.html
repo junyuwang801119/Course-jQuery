@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(72, 72, 172);
+            margin-top: 20px;
+            transition: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <button id="get">get css</button>
+    <button id="set">set css</button>
+    
+    <div class="box">fff</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        let style = {
+            color: "#fff",
+            background: "#000",
+            };
+
+        $('#get').on('click',function(){
+            let bgdata = $('.box').css('background-color')
+            console.log(bgdata)
+            console.log(typeof bgdata)
+
+        })
+        $('#set').on('click',function(){
+            $('.box').css(style)
+            $('.box').css('width', '+=20') //增加寬度  
+        })
+        $('.box').hover(function(){
+            $(this).css('width','100%')
+        },function(){
+            $(this).css('width','200px')
+        })
+    </script>
+</body>
+</html>

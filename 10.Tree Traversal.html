@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Traversal</title>
+</head>
+<body>    
+    <ul class="level1">level1
+        
+        <li class="item-01">item01</li>
+        <li class="item-02">item02</li>
+        <li class="item-03">item03</li>
+
+        <ul class="level2">level2
+            <li class="item-01">item01</li>
+            <li class="item-02">item02</li>
+            <li class="item-03">item03</li>
+
+            <ul class="level3">level3
+                <li class="item-01">item01</li>
+                <li class="item-02">item02</li>
+                <li class="item-033">item03</li>
+            </ul>
+        </ul>
+    </ul>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        //改變ul也會改變子節點li,因為有繼承特性,如果li原本有設定css就不會繼承
+        // $('.level1').children('ul').css("color", "red");
+        // $('.level1').find('li').css("color", "blue");
+        // $('.item-03').parent('.level2').css("color", "green");
+        // $('.item-033').parents().css("color", "green");
+        // parentsUntil('.level2'),level2不會改顏色
+        $('.item-033').parentsUntil('.level2').css("color", "green");
+
+
+    </script>
+</body>
+</html>

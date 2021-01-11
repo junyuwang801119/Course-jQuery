@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="">
+      <div class="form-group">
+        <label for="username">username</label>
+        <input type="text" class="form-control" id="username" disabled />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" />
+      </div>
+      <input type="checkbox" value="" id="checkbox1" />
+      <label for="checkbox1">checkbox1</label>
+      <input type="checkbox" value="" id="checkbox2" />
+      <label for="checkbox2">checkbox2</label>
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(":input").css("background", "red");
+      $(":submit").css("background", "lightblue");
+      $(":text").css("background", "green");
+      $(":checkbox").attr("checked", true);
+        $(":checkbox + label").css("background", "pink").css("color", "white");
+      //可以選擇checkbox隔壁的label標籤下多個css屬性
+      //   disabled是屬性
+      console.log($(":disabled").attr("id"));
+    </script>
+  </body>
+</html>
+<!-- 觸發點和DOM節點都可以當selector用 -->

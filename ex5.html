@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carousel</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .wrap {
+        max-width: 800px;
+        height: 700px;
+        /* overflow: hidden; */
+      }
+      .img-wrap {
+        width: 4000px;
+        left: 0px;
+        transition: 0.5s;
+      }
+      .slider-dots li {
+        width: 40px;
+        height: 10px;
+        margin: 0 4px;
+        border: 1px solid black;
+      }
+      .slider-dots {
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap mx-auto mt-5 position-relative">
+      <ul class="list-unstyled img-wrap d-flex position-absolute">
+        <li><img src="/photo/Succulent.H03.2k-2.png" alt="" /></li>
+        <li><img src="/photo/Succulent.H03.2k-3.png" alt="" /></li>
+        <li><img src="/photo/Succulent.H03.2k-4.png" alt="" /></li>
+        <li><img src="/photo/Succulent.H03.2k-5.png" alt="" /></li>
+        <li><img src="/photo/Succulent.H03.2k.png" alt="" /></li>
+      </ul>
+      <ul
+        class="list-unstyled slider-dots d-flex position-absolute justify-content-center w-100"
+      >
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // $('li').click(function(){
+      //     console.log($(this).index()) //index()選到的是元素裡面第幾個
+      // });
+      // $('li').hover(function(){
+      //     let change = -800 * $(this).index() + 'px'
+      //     $('.img-wrap').css('left',change)
+
+      // });
+      $("li").hover(function () {
+        let change = -800 * $(this).index();
+        $(".img-wrap").css("left", change);
+      });
+      let newIndex = 0;
+      //carousel自動換頁
+      setInterval(function () {
+        if (newIndex > 4) newIndex = 0;
+        $(".img-wrap").css("left", newIndex * -800);
+        newIndex++;
+        $(".slider-dots li").index().css("background-color", "#aaf");
+      }, 1000);
+
+    </script>
+  </body>
+</html>

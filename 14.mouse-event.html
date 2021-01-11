@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+</head>
+<body>
+    <button type="button">click</button>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('button').click(function(){
+            console.log('click')
+        })
+        $('button').dblclick(function(){
+            console.log('db')
+        });
+        $('button').contextmenu(function(){
+            console.log('contextmenu') //右鍵
+        });
+        $('button').mousedown(function(){
+            console.log('mousedown') //滑鼠點下
+        });
+        $('button').mouseup(function(){
+            console.log('mouseup') //滑鼠放開
+        });
+        $('button').mouseenter(function(){
+            console.log('mouseenter') //游標移到上面
+        });
+        $('button').mouseleave(function(){
+            console.log('mouseleave') //游標移開
+        });
+        $('button').hover(function(){
+            console.log('hover in') //游標移到上面
+        },function(){
+            console.log('hover out') //游標移開
+        });
+
+
+
+    </script>
+</body>
+</html>

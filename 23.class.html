@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+    <style>
+        .box {
+        width: 200px;
+        height: 200px;
+        background-color: #aaf;
+        margin-top: 10px;
+        transition: 0.5s;
+      }
+      .active {
+        background-color: #faf;
+        border-radius: 50%;
+      }
+    </style>
+</head>
+<body>
+    <button id="add">add</button>
+    <button id="remove">remove</button>
+    <button id="toggle">toggle</button>
+    <div class="box"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $('#add').click(function(){
+            $('.box').addClass('active') //新增
+        });
+        $('#remove').click(function(){
+            $('.box').removeClass('active') //移除
+        });
+        $('#toggle').click(function(){
+            // setInterval(function(){
+            $('.box').toggleClass('active') //切換狀態
+            // },1000)
+            console.log($('.box').hasClass('active'))
+        });
+
+    </script>
+</body>
+</html>

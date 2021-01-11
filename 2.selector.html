@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selector</title>
+  </head>
+  <body>
+    <div class="btn-primy">123</div>
+    <div class="btn btn-primy">123</div>
+    <div id="btn2" class="btn btn-primy">123</div>
+    <a href="www.google.com">google</a>
+    <a href="www.yahoo.com">yahoo</a>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        //後面的指令一定會蓋過前面的指令
+      $("div").css("background", "red");
+      $(".btn").css("background", "green");
+      $("#btn2").css("background", "blue");
+      $('a[href="www.google.com"]').css("background", "yellow");
+    </script>
+  </body>
+</html>

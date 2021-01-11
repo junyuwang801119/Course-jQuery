@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>instagram</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./28.instagram.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="logo">
+            <img
+              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+              alt=""
+            />
+          </div>
+          <div class="search-input">
+            <input type="text" placeholder="Search" />
+          </div>
+          <div class="login-area">
+            <button class="btn btn-primary btn-sm">Log in</button>
+            <button class="btn btn-link btn-sm">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="personal-img-area col-3">
+            <div class="personal-img">
+              <img
+                src="https://instagram.ftpe7-4.fna.fbcdn.net/v/t51.2885-19/s320x320/116870895_2761740814046919_412789886659001746_n.jpg?_nc_ht=instagram.ftpe7-4.fna.fbcdn.net&_nc_ohc=QKrIf4vHhXIAX-3GLQZ&oh=3e3fdc846a0fd52d3c2b1e6a1fe90b9e&oe=5F8BA8CB"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="personal-info-area col-4">
+            <div class="first-row">
+              <span class="username">gqtaiwan</span>
+              <span class="check"></span>
+              <button class="btn btn-primary btn-sm">Follow</button>
+            </div>
+            <div class="sec-row mt-3 d-flex justify-content-between">
+              <div class="post">
+                <span class="post-no font-weight-bold">1234</span>
+                <span>posts</span>
+              </div>
+              <div class="follower">
+                <span class="follower-no font-weight-bold">123k</span>
+                <span>followers</span>
+              </div>
+              <div class="following">
+                <span class="following-no font-weight-bold">1234</span>
+                <span>following</span>
+              </div>
+            </div>
+            <div class="third-row mt-3">
+              <p class="user-fullname font-weight-bold">GQ Taiwan</p>
+              <p class="info-text">
+                To become a better man, follow GQ Taiwan. 更多精彩內容請至
+              </p>
+              <p>gq.com.tw/instagram</p>
+            </div>
+          </div>
+        </div>
+        <div class="row highlight justify-content-around">
+        </div>
+        <div class="row justify-content-center">
+          <div class="pageLink small font-weight-bold">Posts</div>
+          <div class="pageLink small font-weight-bold">IGTV</div>
+          <div class="pageLink small font-weight-bold">Tagged</div>
+        </div>
+        <div class="row content-area">          
+        </div>
+        <div class="row p-4 position-relative">
+          <div class="">
+            <p class="pl-3 text-secondary font-weight-bold">相關帳號</p>
+          </div>
+          <div class="relative-accounts d-flex ">
+            
+            
+          </div>
+          <a role="button" class="relative-btn-right d-flex justify-content-center align-items-center"><i class="fas fa-angle-right none"></i></a>
+
+          <a role="button" class="relative-btn-left d-flex justify-content-center align-items-center"><i class="fas fa-angle-left"></i></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // 用ajax方法取得json資料
+      $.ajax({
+        url: "http://192.168.27.35:3000/ig2",
+      }).done(function (result) {
+        // console.log("user_img", result.graphql.user.profile_pic_url_hd);    
+            let highlightArray = result.data.user.edge_highlight_reels.edges;
+
+        for (let i = 0; i < highlightArray.length; i++){
+          let htmlString = `<div class="circle">
+            <img
+              src="${highlightArray[i].node.cover_media_cropped_thumbnail.url}"
+              alt=""
+            />
+            <p class="font-weight-bold mt-2 text-center small">${highlightArray[i].node.title}</p>
+          </div>`;
+
+          $(".highlight").append(htmlString);
+      }
+      
+      });
+
+      $.ajax({
+        url: "http://192.168.27.35:3000/ig3",
+      }).done(function (result) {
+           
+        let articleArray = result.data.user.edge_owner_to_timeline_media.edges;
+
+        for (let i = 0; i < articleArray.length; i++){
+          let htmlString = `<div class="col-4 position-relative overflow-hidden p-4">
+            <img
+              src="${articleArray[i].node.display_url}"
+              alt=""
+            />            
+          </div>`;
+
+          $(".content-area").append(htmlString);
+      }
+      
+      });
+      $.ajax({
+        url: "http://192.168.27.35:3000/ig2",
+      }).done(function (result) {
+           
+        let relatedArray = result.data.user.edge_chaining.edges;
+
+        for (let i = 0; i < relatedArray.length; i++){
+          let htmlString = `<div class="cards border px-2 pt-2 pb-4 mx-3">
+              <i class="fas fa-times float-right text-secondary"></i><div class="card-img-area mx-auto mt-3">
+                <img
+                  src="${relatedArray[i].node.profile_pic_url}"
+                  alt=""
+                />
+              </div>
+              <p class="font-weight-bold text-center text-truncate mt-3 mb-1">${relatedArray[i].node.username}
+                
+              </p>
+
+              <p class="text-center text-truncate mb-3">${relatedArray[i].node.full_name}</p>
+              <button class="btn btn-primary w-100 btn-sm">追蹤</button>
+            </div>
+          </div>
+        </div>`;
+
+          $(".relative-accounts").append(htmlString);
+      }
+      
+      });
+      
+      $('.relative-btn-left').addClass('hide')
+      let scroll = 0;
+      $('.relative-btn-right').click(function(){
+        console.log(scroll)
+        scroll +=800
+        $(".relative-accounts").scrollLeft(scroll)
+        if(scroll > 0)
+        $('.relative-btn-left').removeClass('hide')
+        if(scroll >4000)
+        $('.relative-btn-right').addClass('hide')
+        
+      });
+
+      $('.relative-btn-left').click(function(){
+        scroll -=800
+        $(".relative-accounts").scrollLeft(scroll)
+        if(scroll === 0)
+        $('.relative-btn-left').addClass('hide')
+        if(scroll >-2000)
+        $('.relative-btn-right').removeClass('hide')
+        console.log(scroll)
+      });
+     
+    </script>
+  </body>
+</html>

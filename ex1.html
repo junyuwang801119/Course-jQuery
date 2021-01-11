@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        table{
+            margin:60px auto;
+            
+        }
+        table tr td{
+            border:1px solid black;
+            padding:20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+               
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        const table = document.querySelector('table')
+        const data = [
+            {name: 'Fiona1', tel: 01234567 , email:'aaa@aaa.com'},
+            {name: 'Fiona2', tel: 01234567 , email:'bbb@aaa.com'},
+            {name: 'Fiona3', tel: 01234567 , email:'ccc@aaa.com'},
+            {name: 'Fiona4', tel: 01234567 , email:'ddd@aaa.com'},
+        ]
+        const display = data.map(v=>{
+            return `<tr>
+                <td><input type="checkbox" id="" name=""></td>
+                <td>${v.name}</td>
+                <td>${v.tel}</td>
+                <td>${v.email}</td>
+                </tr>`               
+
+        })
+        table.innerHTML = display.join('')
+
+
+        $(":checkbox").on('click', function(e) {
+            if($(this).prop('checked')) 
+            {
+                $(this).parents('tr').css('background','lightblue')
+            }else{
+                $(this).parents('tr').css('background','white')
+            }    
+        })  
+        
+    </script>
+</body>
+</html>

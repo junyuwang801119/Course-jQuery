@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <p id="showAction"></p>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        //可以綁定多個事件
+        $('button').on({
+            mouseenter: function(){
+                $('#showAction').text('Mouse Enter')
+            },
+            //HOVER無法做綁定, 因為HOVER本身用mouseenter,mouseleave寫成的
+            hover:function(){
+                $("#showAction").text("hover");
+            },
+            click:function(){
+                $("#showAction").text("Click");
+            },
+            dblclick:function(){
+                $("#showAction").text("Double Click");
+            },
+            hover:function(){
+                $("#showAction").text("hover");
+            },
+            contextmenu:function(){
+                $("#showAction").text("contextmenu");
+            },     
+            mousedown:function(){
+                $("#showAction").text("mousedown");
+            },     
+            mouseup:function(){
+                $("#showAction").text("mouseup");
+            },     
+               
+    
+        });
+
+
+    </script>
+</body>
+</html>
